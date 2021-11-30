@@ -1,7 +1,12 @@
+#encoding=utf-8
+
 import sys
 import os
 import time
 from io import open
+
+reload(sys)
+sys.setdefaultencoding('utf-8')
 
 headline = ['#','##','###','####','#####','######']
 lines_in_file = []
@@ -48,7 +53,7 @@ def creat_directory(f):
 """以目录列表为参数生成添加目录的文件"""
 def creat_file_with_toc(f):
     directory = creat_directory(f)
-    file_with_toc = os.getcwd() + '\\file_with_toc.md'
+    file_with_toc = os.getcwd() + '/file_with_toc.md'
     if not os.path.exists(file_with_toc):
         with open(file_with_toc, 'w+',encoding='utf-8') as f:
             for directory_line in directory:

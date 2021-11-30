@@ -1,6 +1,7 @@
 import sys
 import os
 import time
+from io import open
 
 headline = ['#','##','###','####','#####','######']
 lines_in_file = []
@@ -51,9 +52,9 @@ def creat_file_with_toc(f):
     if not os.path.exists(file_with_toc):
         with open(file_with_toc, 'w+',encoding='utf-8') as f:
             for directory_line in directory:
-                f.write(directory_line)
+                f.write(directory_line.decode('utf-8'))
             for line in lines_in_file:
-                f.write(line)
+                f.write(line.decode('utf-8'))
             print('文件已生成')
     else:
         print('文件名重复，请修改文件'+'file_with_toc.md'+'的文件名后重试')
